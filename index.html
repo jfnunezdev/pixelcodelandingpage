@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0F172A" />
+
+  <!-- ==================== SEO / SOCIAL ==================== -->
+  <title>Pixel & Code | Cardápio Digital e Landing Page para Restaurantes em Caxias do Sul - RS</title>
+<meta name="description" content="Criamos cardápios digitais com QR Code e landing pages que trazem clientes para restaurantes, bares e pizzarias em Caxias do Sul. Aumente suas vendas com Pixel & Code.">
+    <link rel="canonical" href="https://pixelcode-caxias.netlify.app/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content="PIXEL &amp; CODE — Cardápios Digitais para Restaurantes" />
+  <meta property="og:description" content="O cardápio digital e a landing page perfeitas para o seu restaurante. Digital, rápido e ligado ao WhatsApp." />
+  <meta property="og:url" content="https://pixelcode-caxias.netlify.app/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- ==================== TIPOGRAFIA ==================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet" />
+
+  <!-- ==================== TAILWIND CSS (CDN) ==================== -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    /* Paleta: fundo navy escuro + acentos verde esmeralda -> ciano elétrico */
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            base:    '#0F172A',   // fundo principal
+            deep:    '#080D18',   // seções alternadas
+            surface: '#131C31',   // cards
+            line:    '#1E293B',   // bordas
+            mist:    '#94A3B8',   // texto secundário
+            emerald: { DEFAULT: '#10B981', soft: '#34D399', deep: '#059669' },
+            cyan:    { DEFAULT: '#06B6D4', soft: '#38BDF8', deep: '#0891B2' }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
+          },
+          boxShadow: {
+            accent:     '0 14px 44px -12px rgba(16,185,129,.55), 0 0 0 1px rgba(56,189,248,.18)',
+            'accent-lg':'0 22px 70px -16px rgba(6,182,212,.55), 0 0 0 1px rgba(56,189,248,.22)',
+            card:       '0 24px 60px -32px rgba(0,0,0,.95)',
+            phone:      '0 50px 110px -40px rgba(0,0,0,1), 0 0 0 1px rgba(255,255,255,.08) inset'
+          },
+          keyframes: {
+            float:     { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-14px)' } },
+            glowPulse: { '0%,100%': { opacity: '.45' }, '50%': { opacity: '1' } }
+          },
+          animation: {
+            float:     'float 6s ease-in-out infinite',
+            glowPulse: 'glowPulse 4.5s ease-in-out infinite'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- ==================== ÍCONES (Lucide) ==================== -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- ==================== ESTILOS EXTRAS ==================== -->
+  <style>
+    :root{ --base:#0F172A; --emerald:#10B981; --cyan:#06B6D4; }
+
+    html, body { background: var(--base); }
+    body{ -webkit-font-smoothing:antialiased; }
+
+    ::selection{ background: rgba(16,185,129,.32); color:#fff; }
+
+    ::-webkit-scrollbar{ width:10px; }
+    ::-webkit-scrollbar-track{ background:#080D18; }
+    ::-webkit-scrollbar-thumb{ background:#243049; border-radius:99px; border:2px solid #080D18; }
+    ::-webkit-scrollbar-thumb:hover{ background: var(--emerald); }
+
+    /* Texto com gradiente esmeralda -> ciano */
+    .text-gradient{
+      background: linear-gradient(100deg,#34D399 0%, #10B981 35%, #22D3EE 70%, #38BDF8 100%);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+
+    /* Gradiente da marca */
+    .brand-gradient{ background: linear-gradient(135deg,#10B981 0%, #22C55E 30%, #06B6D4 100%); }
+
+    /* Halos de fundo */
+    .bg-aura{
+      background:
+        radial-gradient(780px 440px at 80% 4%,  rgba(6,182,212,.20), transparent 62%),
+        radial-gradient(640px 440px at 6% 20%,   rgba(16,185,129,.18), transparent 62%),
+        radial-gradient(900px 540px at 50% 110%, rgba(6,182,212,.12), transparent 60%);
+    }
+
+    /* Grade técnica no topo */
+    .bg-grid{
+      background-image:
+        linear-gradient(to right, rgba(148,163,184,.07) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(148,163,184,.07) 1px, transparent 1px);
+      background-size: 64px 64px;
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 20%, transparent 78%);
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 20%, transparent 78%);
+    }
+
+    /* CTA primário: gradiente vibrante + glow */
+    .btn-accent{
+      background: linear-gradient(135deg,#10B981 0%, #22C55E 32%, #06B6D4 100%);
+      box-shadow: 0 14px 40px -12px rgba(16,185,129,.6), 0 0 0 1px rgba(56,189,248,.22);
+      transition: transform .3s cubic-bezier(.16,1,.3,1), filter .3s, box-shadow .3s;
+    }
+    .btn-accent:hover{
+      filter: brightness(1.08) saturate(1.06);
+      transform: translateY(-2px);
+      box-shadow: 0 22px 60px -14px rgba(6,182,212,.7), 0 0 0 1px rgba(56,189,248,.35);
+    }
+    .btn-accent:active{ transform: translateY(0); }
+
+    /* CTA secundário */
+    .btn-ghost{
+      background: rgba(19,28,49,.7);
+      border: 1px solid rgba(148,163,184,.22);
+      transition: border-color .3s, color .3s, background-color .3s, transform .3s;
+    }
+    .btn-ghost:hover{
+      border-color: rgba(52,211,153,.55);
+      color: #34D399;
+      background: rgba(16,185,129,.08);
+      transform: translateY(-2px);
+    }
+
+    /* Logotipo </> */
+    .logo-mark{
+      background: linear-gradient(140deg, rgba(16,185,129,.16), rgba(6,182,212,.10));
+      box-shadow: inset 0 0 0 1px rgba(52,211,153,.35), 0 10px 30px -12px rgba(6,182,212,.7);
+    }
+
+    /* Cards com borda gradiente no hover */
+    .card-glow{
+      position:relative;
+      transition: transform .35s cubic-bezier(.16,1,.3,1), border-color .35s, background-color .35s, box-shadow .35s;
+    }
+    .card-glow::after{
+      content:''; position:absolute; inset:-1px; border-radius:inherit; padding:1px;
+      background: linear-gradient(140deg, rgba(52,211,153,.75), rgba(6,182,212,.45) 45%, transparent 72%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+      opacity:0; transition: opacity .35s; pointer-events:none;
+    }
+    .card-glow:hover{
+      transform: translateY(-6px);
+      border-color: transparent;
+      background-color:#16203A;
+      box-shadow: 0 30px 70px -34px rgba(6,182,212,.55);
+    }
+    .card-glow:hover::after{ opacity:1; }
+
+    /* Revelação no scroll */
+    .reveal{ opacity:0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+    .reveal.is-visible{ opacity:1; transform:none; }
+
+    /* FAQ accordion */
+    .faq-body{ max-height:0; overflow:hidden; transition: max-height .45s cubic-bezier(.16,1,.3,1); }
+    .faq-item.open .faq-body{ max-height: 360px; }
+    .faq-item.open .faq-icon{ transform: rotate(45deg); }
+    .faq-icon{ transition: transform .35s ease; }
+
+    /* WhatsApp flutuante */
+    .wa-float{ animation: float 5s ease-in-out infinite; }
+
+    @media (prefers-reduced-motion: reduce){
+      *{ animation:none !important; transition:none !important; }
+      .reveal{ opacity:1 !important; transform:none !important; }
+      html{ scroll-behavior:auto; }
+    }
+  </style>
+</head>
+
+<body class="bg-base text-mist font-sans antialiased selection:bg-emerald/30">
+
+  <!-- Link pulo para o conteúdo -->
+  <a href="#hero" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-emerald focus:text-[#04110C] focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold">
+    Pular para o conteúdo
+  </a>
+
+  <!-- ==================== NAVBAR FIXA ==================== -->
+  <header id="navbar" class="fixed top-0 inset-x-0 z-50 border-b border-transparent transition-all duration-300">
+    <nav class="mx-auto max-w-7xl px-5 sm:px-8">
+      <div class="flex h-[72px] items-center justify-between">
+
+        <!-- Marca PIXEL & CODE com ícone </> -->
+        <a href="#hero" class="group flex items-center gap-3">
+          <span class="logo-mark grid h-11 w-11 place-items-center rounded-xl font-mono text-[15px] font-bold tracking-tight text-white transition-transform duration-300 group-hover:scale-105">
+            <span class="text-gradient">&lt;/&gt;</span>
+          </span>
+          <span class="leading-tight">
+            <span class="block text-[15px] font-extrabold tracking-tight text-white">PIXEL <span class="text-gradient">&amp;</span> CODE</span>
+            <span class="block text-[10px] font-bold uppercase tracking-[.2em] text-mist/70">Soluções Digitais</span>
+          </span>
+        </a>
+
+        <!-- Links (desktop) -->
+        <ul class="hidden lg:flex items-center gap-6 text-sm font-semibold text-mist">
+          <li><a class="nav-link transition-colors hover:text-emerald-soft" href="#como-funciona">Como funciona</a></li>
+          <li><a class="nav-link transition-colors hover:text-emerald-soft" href="#exemplos">Exemplos</a></li>
+          <li><a class="nav-link transition-colors hover:text-emerald-soft" href="#vantagens">Vantagens</a></li>
+          <!-- Perfil real do Instagram -->
+          <li><a class="nav-link transition-colors hover:text-emerald-soft" href="https://www.instagram.com/pixelcode.solucoesdigitais/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a class="nav-link transition-colors hover:text-emerald-soft" href="#contato">Contato</a></li>
+        </ul>
+
+        <!-- CTA (desktop) -->
+        <div class="hidden lg:flex items-center gap-4">
+          <a href="mailto:jfnunez.dev@gmail.com" class="text-sm font-semibold text-mist transition-colors hover:text-cyan-soft">jfnunez.dev@gmail.com</a>
+          <a href="https://wa.me/5554996077805?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20PIXEL%20%26%20CODE%20e%20quero%20um%20or%C3%A7amento%20para%20meu%20restaurante"
+             target="_blank" rel="noopener"
+             class="btn-accent inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-extrabold text-[#04110C]">
+            <i data-lucide="message-circle" class="h-4 w-4"></i> WhatsApp
+          </a>
+        </div>
+
+        <!-- Botão do menu mobile -->
+        <button id="menuBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu"
+                class="lg:hidden grid h-11 w-11 place-items-center rounded-xl border border-line bg-surface text-emerald-soft">
+          <i data-lucide="menu" class="h-5 w-5"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Menu mobile -->
+    <div id="mobileMenu" class="lg:hidden hidden border-t border-line bg-surface/95 backdrop-blur-xl">
+      <ul class="mx-auto max-w-7xl px-5 sm:px-8 py-4 space-y-1 text-[15px] font-semibold">
+        <li><a class="block rounded-lg px-3 py-3 text-mist transition-colors hover:bg-white/5 hover:text-emerald-soft" href="#como-funciona">Como funciona</a></li>
+        <li><a class="block rounded-lg px-3 py-3 text-mist transition-colors hover:bg-white/5 hover:text-emerald-soft" href="#exemplos">Exemplos</a></li>
+        <li><a class="block rounded-lg px-3 py-3 text-mist transition-colors hover:bg-white/5 hover:text-emerald-soft" href="#vantagens">Vantagens</a></li>
+        <li>
+          <a class="flex items-center gap-2.5 rounded-lg px-3 py-3 text-mist transition-colors hover:bg-white/5 hover:text-emerald-soft"
+             href="https://www.instagram.com/pixelcode.solucoesdigitais/" target="_blank" rel="noopener">
+            <i data-lucide="instagram" class="h-4 w-4 text-emerald-soft"></i> Instagram
+          </a>
+        </li>
+        <li><a class="block rounded-lg px-3 py-3 text-mist transition-colors hover:bg-white/5 hover:text-emerald-soft" href="#contato">Contato</a></li>
+        <li class="pt-3">
+          <a href="mailto:jfnunez.dev@gmail.com" class="btn-ghost flex items-center justify-center gap-2 rounded-xl px-5 py-3 font-bold text-white">
+            <i data-lucide="mail" class="h-5 w-5 text-emerald-soft"></i> jfnunez.dev@gmail.com
+          </a>
+        </li>
+        <li class="pt-2">
+          <a href="https://wa.me/5554996077805?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20PIXEL%20%26%20CODE%20e%20quero%20um%20or%C3%A7amento%20para%20meu%20restaurante"
+             target="_blank" rel="noopener"
+             class="btn-accent flex items-center justify-center gap-2 rounded-xl px-5 py-4 font-extrabold text-[#04110C]">
+            <i data-lucide="message-circle" class="h-5 w-5"></i> Falar no WhatsApp
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== HERO ==================== -->
+    <section id="hero" class="relative overflow-hidden bg-aura pb-20 pt-32 sm:pt-36 lg:pb-28 lg:pt-40">
+      <div class="pointer-events-none absolute inset-0 bg-grid"></div>
+
+      <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="grid items-center gap-14 lg:grid-cols-2">
+
+          <!-- Coluna de texto -->
+          <div class="text-center lg:text-left">
+            <div class="reveal inline-flex items-center gap-2 rounded-full border border-emerald/25 bg-emerald/[.08] px-4 py-2">
+              <span class="relative flex h-2 w-2">
+                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan opacity-75"></span>
+                <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald"></span>
+              </span>
+              <span class="text-[11px] font-bold uppercase tracking-[.16em] text-emerald-soft">Cardápio digital &middot; QR Code &middot; Pedido no WhatsApp</span>
+            </div>
+
+            <h1 class="reveal mt-7 text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.4rem]">
+              O cardápio digital e a landing page
+              <span class="text-gradient">perfeitas</span>
+              para o seu restaurante.
+            </h1>
+
+            <p class="reveal mx-auto mt-6 max-w-xl text-base leading-relaxed text-mist sm:text-lg lg:mx-0">
+              Criamos menus digitais interativos e landing pages de alta performance para
+              restaurantes, lanchonetes e cafeterias em Caxias do Sul e região. Seu cliente
+              escaneia o QR Code e envia o pedido direto no seu WhatsApp &mdash; sem app para baixar.
+            </p>
+
+            <!-- CTAs -->
+            <div class="reveal mt-9 flex flex-col gap-3.5 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
+              <a href="https://wa.me/5554996077805?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20PIXEL%20%26%20CODE%20e%20quero%20um%20or%C3%A7amento%20para%20meu%20restaurante"
+                 target="_blank" rel="noopener"
+                 class="btn-accent group inline-flex items-center justify-center gap-2.5 rounded-full px-7 py-4 text-base font-extrabold text-[#04110C]">
+                <i data-lucide="message-circle" class="h-5 w-5"></i>
+                Quero meu cardápio digital
+                <i data-lucide="arrow-right" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
+              </a>
+              <a href="#exemplos"
+                 class="btn-ghost inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-base font-bold text-white">
+                <i data-lucide="monitor-play" class="h-5 w-5 text-cyan-soft"></i>
+                Ver demonstração
+              </a>
+              <a href="https://www.instagram.com/pixelcode.solucoesdigitais/" target="_blank" rel="noopener" class="btn-ghost inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-base font-bold text-white">
+                <svg class="h-5 w-5 text-cyan-soft" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                Acessar Instagram
+              </a>
+            </div>
+
+            <!-- Prova social -->
+            <div class="reveal mt-9 flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-xs font-semibold text-mist/80 lg:justify-start">
+              <span class="inline-flex items-center gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-emerald-soft"></i> Entrega em 3 a 7 dias</span>
+              <span class="inline-flex items-center gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-emerald-soft"></i> Sem mensalidade</span>
+              <span class="inline-flex items-center gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-cyan-soft"></i> Caxias do Sul e região</span>
+            </div>
+          </div>
+
+          <!-- Coluna visual: mockup + QR Code real -->
+          <div class="reveal relative mx-auto w-full max-w-[360px] lg:max-w-none">
+            <div class="absolute -inset-10 -z-10 rounded-full bg-emerald/10 blur-3xl animate-glowPulse"></div>
+            <div class="absolute -right-8 top-6 -z-10 h-64 w-64 rounded-full bg-cyan/[.12] blur-3xl animate-glowPulse"></div>
+
+            <!-- Mockup do celular com o cardápio digital -->
+            <div class="shadow-phone relative mx-auto w-[286px] rounded-[2.6rem] border border-white/10 bg-surface p-2.5 sm:w-[306px] lg:w-[318px]">
+              <span class="absolute -left-[3px] top-28 h-12 w-[3px] rounded-l bg-white/15"></span>
+              <span class="absolute -left-[3px] top-44 h-8 w-[3px] rounded-l bg-white/15"></span>
+
+              <div class="relative overflow-hidden rounded-[2.1rem] bg-[#080D18]">
+                <div class="absolute left-1/2 top-2 z-20 h-5 w-24 -translate-x-1/2 rounded-full bg-black"></div>
+
+                <!-- Capa do restaurante -->
+                <div class="relative h-36 overflow-hidden">
+                  <div class="absolute inset-0 brand-gradient opacity-90"></div>
+                  <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_15%,rgba(255,255,255,.45),transparent_55%)]"></div>
+                  <div class="relative flex h-full flex-col justify-end p-4 pb-5">
+                    <p class="text-[10px] font-bold uppercase tracking-[.2em] text-[#04110C]/70">Culinária brasileira</p>
+                    <p class="text-xl font-extrabold leading-tight text-[#04110C]">Sabores da<br/>Casa</p>
+                    <div class="mt-2 inline-flex w-fit items-center gap-1 rounded-full bg-black/40 px-2 py-0.5 text-[9px] font-bold text-white backdrop-blur">
+                      <i data-lucide="star" class="h-2.5 w-2.5 fill-emerald-soft text-emerald-soft"></i> 4.9 &middot; Aberto agora
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Categorias -->
+                <div class="flex gap-1.5 overflow-hidden px-3 py-3">
+                  <span class="shrink-0 rounded-full brand-gradient px-2.5 py-1 text-[9px] font-extrabold text-[#04110C]">Destaques</span>
+                  <span class="shrink-0 rounded-full border border-line px-2.5 py-1 text-[9px] font-bold text-mist">Entradas</span>
+                  <span class="shrink-0 rounded-full border border-line px-2.5 py-1 text-[9px] font-bold text-mist">Pratos</span>
+                  <span class="shrink-0 rounded-full border border-line px-2.5 py-1 text-[9px] font-bold text-mist">Sobremesas</span>
+                </div>
+
+                <!-- Itens -->
+                <div class="space-y-2 px-3 pb-4">
+                  <div class="flex items-center gap-2.5 rounded-xl border border-line bg-white/[.03] p-2">
+                    <div class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-emerald/[.12] text-base">&#127859;</div>
+                    <div class="min-w-0 flex-1">
+                      <p class="truncate text-[11px] font-bold text-white">Feijoada Completa</p>
+                      <p class="text-[9px] text-mist/70">Serve 1 pessoa &middot; 480 g</p>
+                    </div>
+                    <span class="text-[11px] font-extrabold text-emerald-soft">R$ 34,90</span>
+                  </div>
+                  <div class="flex items-center gap-2.5 rounded-xl border border-line bg-white/[.03] p-2">
+                    <div class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-cyan/[.12] text-base">&#127869;</div>
+                    <div class="min-w-0 flex-1">
+                      <p class="truncate text-[11px] font-bold text-white">Penne ao Molho Branco</p>
+                      <p class="text-[9px] text-mist/70">Gratinado &middot; Parmesão</p>
+                    </div>
+                    <span class="text-[11px] font-extrabold text-emerald-soft">R$ 29,90</span>
+                  </div>
+                  <div class="flex items-center gap-2.5 rounded-xl border border-cyan/30 bg-cyan/[.07] p-2">
+                    <div class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-cyan/[.12] text-base">&#127865;</div>
+                    <div class="min-w-0 flex-1">
+                      <p class="truncate text-[11px] font-bold text-white">Suco Natural 500ml</p>
+                      <p class="text-[9px] font-semibold text-cyan-soft">Mais pedido da casa</p>
+                    </div>
+                    <span class="text-[11px] font-extrabold text-emerald-soft">R$ 12,00</span>
+                  </div>
+                </div>
+
+                <!-- CTA de pedido -->
+                <div class="border-t border-line bg-surface/95 px-3 py-3 backdrop-blur">
+                  <a href="https://wa.me/5554996077805?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20PIXEL%20%26%20CODE%20e%20quero%20um%20or%C3%A7amento%20para%20meu%20restaurante"
+                     target="_blank" rel="noopener"
+                     class="btn-accent flex w-full items-center justify-center gap-2 rounded-xl py-2.5 text-[11px] font-extrabold text-[#04110C]">
+                    <i data-lucide="message-circle" class="h-3.5 w-3.5"></i> Pedir no WhatsApp
+                  </a>
+                </div>
+                <div class="flex justify-center bg-surface pb-2 pt-1.5">
+                  <span class="h-1 w-24 rounded-full bg-white/25"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- QR CODE REAL via API -->
+            <div class="absolute -right-2 bottom-16 w-[140px] rounded-2xl border border-emerald/25 bg-surface/95 p-3 shadow-accent backdrop-blur sm:-right-4 lg:-right-12">
+              <div class="relative overflow-hidden rounded-xl bg-white p-2">
+                <img
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=https://wa.me/5554996077805?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20PIXEL%20%26%20CODE"
+                  width="200" height="200" loading="lazy" decoding="async"
+                  alt="QR Code para iniciar uma conversa no WhatsApp com a PIXEL &amp; CODE"
+                  class="block h-[108px] w-[108px]" />
+              </div>
+              <p class="mt-2.5 text-center text-[9px] font-extrabold uppercase tracking-[.14em] text-emerald-soft">Aponte a câmera</p>
+              <p class="mt-0.5 text-center text-[9px] font-semibold text-mist/70">Chame no WhatsApp</p>
+            </div>
+
+            <!-- Cards flutuantes -->
+            <div class="absolute -left-3 top-20 hidden animate-float rounded-2xl border border-line bg-surface/95 px-3.5 py-2.5 shadow-card backdrop-blur sm:flex lg:-left-10">
+              <div class="flex items-center gap-2.5">
+                <span class="grid h-8 w-8 place-items-center rounded-lg bg-emerald/[.12] text-emerald-soft"><i data-lucide="zap" class="h-4 w-4"></i></span>
+                <div>
+                  <p class="text-[10px] font-bold uppercase tracking-wider text-mist/70">Carregamento</p>
+                  <p class="text-xs font-extrabold text-white">0,8 s</p>
+                </div>
+              </div>
+            </div>
+            <div class="absolute -left-2 top-56 hidden animate-float rounded-2xl border border-line bg-surface/95 px-3.5 py-2.5 shadow-card backdrop-blur sm:flex lg:-left-8" style="animation-delay:-2.5s">
+              <div class="flex items-center gap-2.5">
+                <span class="grid h-8 w-8 place-items-center rounded-lg bg-cyan/[.12] text-cyan-soft"><i data-lucide="shopping-bag" class="h-4 w-4"></i></span>
+                <div>
+                  <p class="text-[10px] font-bold uppercase tracking-wider text-mist/70">Mesa 07</p>
+                  <p class="text-xs font-extrabold text-white">Pedido enviado</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== NÚMEROS ==================== -->
+    <section class="relative border-y border-line bg-deep/60">
+      <div class="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-5 py-8 sm:px-8 lg:grid-cols-4">
+        <div class="reveal text-center">
+          <p class="text-2xl font-extrabold text-gradient sm:text-3xl">+120</p>
+          <p class="mt-1 text-[11px] font-bold uppercase tracking-wider text-mist/70">Cardápios entregues</p>
+        </div>
+        <div class="reveal text-center">
+          <p class="text-2xl font-extrabold text-gradient sm:text-3xl">+38%</p>
+          <p class="mt-1 text-[11px] font-bold uppercase tracking-wider text-mist/70">Mais pedidos no cardápio</p>
+        </div>
+        <div class="reveal text-center">
+          <p class="text-2xl font-extrabold text-gradient sm:text-3xl">0,8s</p>
+          <p class="mt-1 text-[11px] font-bold uppercase tracking-wider text-mist/70">Carregamento em 4G</p>
+        </div>
+        <div class="reveal text-center">
+          <p class="text-2xl font-extrabold text-gradient sm:text-3xl">100%</p>
+          <p class="mt-1 text-[11px] font-bold uppercase tracking-wider text-mist/70">Mobile-first</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== COMO FUNCIONA ==================== -->
+    <section id="como-funciona" class="relative py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="text-[11px] font-bold uppercase tracking-[.22em] text-cyan-soft">Como funciona</p>
+          <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+            Como funciona na <span class="text-gradient">prática</span>
+          </h2>
+          <p class="mt-4 text-base leading-relaxed text-mist">
+            Três passos simples para transformar o atendimento do seu restaurante.
+          </p>
+        </div>
+
+        <div class="mt-14 grid gap-6 md:grid-cols-3">
+          <article class="card-glow reveal relative overflow-hidden rounded-2xl border border-line bg-surface p-7">
+            <span class="absolute -right-2 -top-6 select-none text-7xl font-extrabold text-white/[.04]">01</span>
+            <span class="grid h-12 w-12 place-items-center rounded-xl brand-gradient text-[#04110C] shadow-accent">
+              <i data-lucide="qr-code" class="h-6 w-6"></i>
+            </span>
+            <h3 class="mt-5 text-lg font-extrabold text-white">QR Code na Mesa</h3>
+            <p class="mt-2.5 text-sm leading-relaxed text-mist">
+              O cliente aponta a câmera do celular para a mesa e abre o cardápio instantaneamente,
+              sem baixar aplicativos.
+            </p>
+          </article>
+
+          <article class="card-glow reveal relative overflow-hidden rounded-2xl border border-line bg-surface p-7" style="transition-delay:.08s">
+            <span class="absolute -right-2 -top-6 select-none text-7xl font-extrabold text-white/[.04]">02</span>
+            <span class="grid h-12 w-12 place-items-center rounded-xl brand-gradient text-[#04110C] shadow-accent">
+              <i data-lucide="utensils" class="h-6 w-6"></i>
+            </span>
+            <h3 class="mt-5 text-lg font-extrabold text-white">Escolha e Pedido</h3>
+            <p class="mt-2.5 text-sm leading-relaxed text-mist">
+              Ele navega pelas categorias, vê fotos apetitosas, descrições e monta o pedido
+              com facilidade e autonomia.
+            </p>
+          </article>
+
+          <article class="card-glow reveal relative overflow-hidden rounded-2xl border border-line bg-surface p-7" style="transition-delay:.16s">
+            <span class="absolute -right-2 -top-6 select-none text-7xl font-extrabold text-white/[.04]">03</span>
+            <span class="grid h-12 w-12 place-items-center rounded-xl brand-gradient text-[#04110C] shadow-accent">
+              <i data-lucide="message-circle" class="h-6 w-6"></i>
+            </span>
+            <h3 class="mt-5 text-lg font-extrabold text-white">WhatsApp Direto</h3>
+            <p class="mt-2.5 text-sm leading-relaxed text-mist">
+              O pedido formatado chega direto no WhatsApp do caixa ou da cozinha, pronto para ser
+              confirmado e entregue.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== EXEMPLOS REAIS / SHOWCASE ==================== -->
+    <section id="exemplos" class="relative border-y border-line bg-deep/60 py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="text-[11px] font-bold uppercase tracking-[.22em] text-cyan-soft">Exemplos reais</p>
+          <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+            Cardápios que já estão <span class="text-gradient">rodando</span>
+          </h2>
+          <p class="mt-4 text-base leading-relaxed text-mist">
+            Cada projeto é construído para o segmento do restaurante. Veja como ficaria o seu:
+          </p>
+        </div>
+
+        <div class="mt-14 grid gap-6 md:grid-cols-3">
+
+          <!-- ===== Card 1: Café & Bistrô (foto real) ===== -->
+          <article class="card-glow reveal group overflow-hidden rounded-2xl border border-line bg-surface">
+            <!-- Container da foto: overflow-hidden + artigo rounded-2xl = cantos superiores coincidentes -->
+            <div class="relative h-48 overflow-hidden">
+              <!-- Gradiente de fundo: se a foto falhar, o card continua bonito -->
+              <div class="absolute inset-0 bg-gradient-to-br from-emerald via-[#0B4F3F] to-[#04120F]"></div>
+              <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&amp;fit=crop&amp;w=800&amp;h=600&amp;q=80"
+                   alt="Café especial e padaria artesanal servidos no balcão do café"
+                   loading="lazy" decoding="async" width="800" height="600"
+                   data-fallback="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&amp;fit=crop&amp;w=800&amp;h=600&amp;q=80"
+                   class="relative h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110" />
+              <!-- Overlay escuro para as etiquetas flutuantes destacarem -->
+              <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#080D18] via-[#080D18]/35 to-black/25"></div>
+              <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_15%,rgba(16,185,129,.22),transparent_58%)]"></div>
+              <span class="absolute left-4 top-4 rounded-full bg-black/55 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-emerald-soft backdrop-blur-md">Café &amp; Bistrô</span>
+              <span class="absolute bottom-3 right-4 text-2xl drop-shadow-lg">&#9749;</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-extrabold text-white">Café &amp; Bistrô</h3>
+              <p class="mt-2 text-sm leading-relaxed text-mist">
+                Cardápio de morning break com café especial, padaria artesanal e reserva de mesa pelo WhatsApp.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2 text-[11px] font-bold">
+                <span class="rounded-full border border-line bg-white/[.03] px-2.5 py-1 text-mist">Cafés</span>
+                <span class="rounded-full border border-line bg-white/[.03] px-2.5 py-1 text-mist">Padaria</span>
+                <span class="rounded-full border border-line bg-white/[.03] px-2.5 py-1 text-mist">Bistrô</span>
+                <span class="rounded-full border border-line bg-white/[.03] px-2.5 py-1 text-mist">Reservas</span>
+              </div>
+              <a href="https://wa.me/5554996077805?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20PIXEL%20%26%20CODE%20e%20quero%20um%20or%C3%A7amento%20para%20meu%20restaurante"
+                 target="_blank" rel="noopener"
+                 class="mt-5 inline-flex items-center gap-2 text-sm font-extrabold text-emerald-soft transition-colors hover:text-cyan-soft">
+                Quero um igual <i data-lucide="arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-1"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- ===== Card 2: Pizzaria Napolitana (foto real) ===== -->
+          <article class="card-glow reveal group overflow-hidden rounded-2xl border border-line bg-surface" style="transition-delay:.08s">
+            <div class="relative h-48 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-cyan via-[#0A3F4C] to-[#04141A]"></div>
+              <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=800&amp;h=600&amp;q=80"
+                   alt="Pizza artesanal recém-saída do forno com ingredientes frescos"
+                   loading="lazy" decoding="async" width="800" height="600"
+                   data-fallback="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&amp;fit=crop&amp;w=800&amp;h=600&amp;q=80"
+                   class="relative h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110" />
+              <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#080D18] via-[#080D18]/35 to-black/25"></div>
+              <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(6,182,212,.22),transparent_58%)]"></div>
+              <span class="absolute left-4 top-4 rounded-full bg-black/55 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-cyan-soft backdrop-blur-md">Pizzaria</span>
+              <span class="absolute bottom-3 right-4 text-2xl drop-shadow-lg">&#127856;</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-extrabold text-white">Pizzaria Napolitana</h3>
+              <p class="mt-2 text-sm leading-relaxed text-mist">
+                Categorias por sabor, tabela de tamanhos, bordas e pedido de sabor personalizado em poucos toques.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2 text-[11px] font-bold">
+                <span class="rounded-full border border-line bg-white/[.03] px-2.5 py-1 text-mist">Pizzas</span>
+                <span class="rounded-full border border-line bg-white/[.03] px-2.5 py-1 text-mist">Especiais</span>
+                <span class="rounded-full border border-line bg-white/[.03] px-2.5 py-1 text-mist">Porções</span>
+                <span class="rounded-full border border-line bg-white/[.03] px-2.5 py-1 text-mist">Delivery</span>
+              </div>
+              <a href="https://wa.me/5554996077805?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20PIXEL%20%26%20CODE%20e%20quero%20um%20or%C3%A7amento%20para%20meu%20restaurante"
+                 target="_blank" rel="noopener"
+                 class="mt-5 inline-flex items-center gap-2 text-sm font-extrabold text-emerald-soft transition-colors hover:text-cyan-soft">
+                Quero um igual <i data-lucide="arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-1"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- ===== Card 3: Burger House (foto real) ===== -->
+          <article class="card-glow reveal group overflow-hidden rounded-2xl border border-line bg-surface" style="transition-delay:.16s">
+            <div class="relative h-48 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-[#22C55E] via-[#0E4A34] to-[#06160F]"></div>
+              <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&amp;fit=crop&amp;w=800&amp;h=600&amp;q=80"
+                   alt="Hambúrguer gourmet com pão brioche, queijo derretido e ingredientes frescos"
+                   loading="lazy" decoding="async" width="800" height="600"
+                   data-fallback="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&amp;fit=crop&amp;w=800&amp;h=600&amp;q=80"
+                   class="relative h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110" />
+              <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#080D18] via-[#080D18]/35 to-black/25"></div>
+              <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(34,197,94,.20),transparent_58%)]"></div>
+              <span class="absolute left-4 top-4 rounded-full bg-black/55 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-emerald-soft backdrop-blur-md">Lanches</span>
+              <span class="absolute bottom-3 right-4 text-2xl drop-shadow-lg">&#127828;</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-extrabold text-white">Burger House</h3>
+              <p class="mt-2 text-sm leading-relaxed text-mist">
+                Cardápio de lanches com combos, adicionais e ponto de fidelidade &mdash; um toque e o pedido vai para o WhatsApp.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2 text-[11px] font-bold">
+                <span class="rounded-full border border-line bg-white/[.03] px-2.5 py-1 text-mist">Smash</span>
+                <span class="rounded-full border border-line bg-white/[.03] px-2.5 py-1 text-mist">Combos</span>
+                <span class="rounded-full border border-line bg-white/[.03] px-2.5 py-1 text-mist">Porções</span>
+                <span class="rounded-full border border-line bg-white/[.03] px-2.5 py-1 text-mist">Fidelidade</span>
+              </div>
+              <a href="https://wa.me/5554996077805?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20PIXEL%20%26%20CODE%20e%20quero%20um%20or%C3%A7amento%20para%20meu%20restaurante"
+                 target="_blank" rel="noopener"
+                 class="mt-5 inline-flex items-center gap-2 text-sm font-extrabold text-emerald-soft transition-colors hover:text-cyan-soft">
+                Quero um igual <i data-lucide="arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-1"></i>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== VANTAGENS ==================== -->
+    <section id="vantagens" class="relative py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+
+        <div class="grid gap-12 lg:grid-cols-[minmax(0,42%)_minmax(0,58%)] lg:gap-16">
+          <div class="reveal lg:sticky lg:top-28 lg:self-start">
+            <p class="text-[11px] font-bold uppercase tracking-[.22em] text-cyan-soft">Vantagens</p>
+            <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+              Por que o cardápio digital <span class="text-gradient">vende mais</span>
+            </h2>
+            <p class="mt-5 text-base leading-relaxed text-mist">
+              Cardápio em PDF não tem foto, não carrega rápido e não vira pedido.
+              O digital resolve os três problemas &mdash; e ainda dá dados para você vender mais.
+            </p>
+            <a href="https://wa.me/5554996077805?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20PIXEL%20%26%20CODE%20e%20quero%20um%20or%C3%A7amento%20para%20meu%20restaurante"
+               target="_blank" rel="noopener"
+               class="btn-accent mt-8 inline-flex items-center gap-2.5 rounded-full px-7 py-4 text-base font-extrabold text-[#04110C]">
+              <i data-lucide="message-circle" class="h-5 w-5"></i> Falar com um especialista
+            </a>
+          </div>
+
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div class="card-glow reveal rounded-2xl border border-line bg-surface p-6">
+              <span class="grid h-11 w-11 place-items-center rounded-xl bg-emerald/[.12] text-emerald-soft"><i data-lucide="refresh-cw" class="h-5 w-5"></i></span>
+              <h3 class="mt-4 text-base font-extrabold text-white">Atualizações na hora</h3>
+              <p class="mt-2 text-sm leading-relaxed text-mist">
+                Mudou o preço? Entrou prato novo? Você atualiza em minutos, sem refazer nada &mdash;
+                sem custo de impressão e sem tabela errada na mesa.
+              </p>
+            </div>
+
+            <div class="card-glow reveal rounded-2xl border border-line bg-surface p-6" style="transition-delay:.06s">
+              <span class="grid h-11 w-11 place-items-center rounded-xl bg-cyan/[.12] text-cyan-soft"><i data-lucide="gauge" class="h-5 w-5"></i></span>
+              <h3 class="mt-4 text-base font-extrabold text-white">Velocidade de carga</h3>
+              <p class="mt-2 text-sm leading-relaxed text-mist">
+                Site ultra-levado que abre em menos de 1 segundo, mesmo em 4G.
+                O cliente não espera &mdash; e não sai da página para procurar o cardápio no Google.
+              </p>
+            </div>
+
+            <div class="card-glow reveal rounded-2xl border border-line bg-surface p-6" style="transition-delay:.12s">
+              <span class="grid h-11 w-11 place-items-center rounded-xl bg-emerald/[.12] text-emerald-soft"><i data-lucide="smartphone" class="h-5 w-5"></i></span>
+              <h3 class="mt-4 text-base font-extrabold text-white">100% mobile-friendly</h3>
+              <p class="mt-2 text-sm leading-relaxed text-mist">
+                Praticamente todos os pedidos de restaurante acontecem no celular. O cardápio foi
+                desenhado para o polegar: botões grandes, imagens otimizadas e leitura fácil.
+              </p>
+            </div>
+
+            <div class="card-glow reveal rounded-2xl border border-line bg-surface p-6" style="transition-delay:.18s">
+              <span class="grid h-11 w-11 place-items-center rounded-xl bg-cyan/[.12] text-cyan-soft"><i data-lucide="message-circle" class="h-5 w-5"></i></span>
+              <h3 class="mt-4 text-base font-extrabold text-white">Integração direta com o WhatsApp</h3>
+              <p class="mt-2 text-sm leading-relaxed text-mist">
+                Um toque e o pedido chega formatado no seu WhatsApp, com itens, quantidades e
+                observações. Você não perde mais nenhum pedido no direct.
+              </p>
+            </div>
+
+            <div class="card-glow reveal rounded-2xl border border-line bg-surface p-6 sm:col-span-2">
+              <span class="grid h-11 w-11 place-items-center rounded-xl bg-emerald/[.12] text-emerald-soft"><i data-lucide="trending-up" class="h-5 w-5"></i></span>
+              <h3 class="mt-4 text-base font-extrabold text-white">Pedidos prontos para vender</h3>
+              <p class="mt-2 text-sm leading-relaxed text-mist">
+                Categorias organizadas, sem poluição de texto, fotos otimizadas e destaque para os itens
+                que mais saem. Tudo pensado para transformar leitura em pedido.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== DEPOIMENTO ==================== -->
+    <section class="relative border-y border-line bg-deep/60 py-16">
+      <div class="mx-auto max-w-4xl px-5 sm:px-8 text-center">
+        <div class="reveal flex justify-center gap-1">
+          <i data-lucide="star" class="h-5 w-5 fill-emerald-soft text-emerald-soft"></i>
+          <i data-lucide="star" class="h-5 w-5 fill-emerald-soft text-emerald-soft"></i>
+          <i data-lucide="star" class="h-5 w-5 fill-cyan-soft text-cyan-soft"></i>
+          <i data-lucide="star" class="h-5 w-5 fill-cyan-soft text-cyan-soft"></i>
+          <i data-lucide="star" class="h-5 w-5 fill-cyan-soft text-cyan-soft"></i>
+        </div>
+        <blockquote class="reveal mt-6 text-xl font-bold leading-snug text-white sm:text-2xl">
+          &ldquo;Antes eu mandava PDF no WhatsApp e ninguém abria. Hoje o cliente escaneia o QR Code,
+          pede em 30 segundos e eu recebo tudo organizado. Voltou a entrar pedido.&rdquo;
+        </blockquote>
+        <div class="reveal mt-7 flex items-center justify-center gap-3">
+          <span class="grid h-11 w-11 place-items-center rounded-full brand-gradient font-extrabold text-[#04110C]">MC</span>
+          <div class="text-left">
+            <p class="text-sm font-extrabold text-white">Marcos Costa</p>
+            <p class="text-xs font-semibold text-mist/70">Proprietário &middot; Lanchonete do Marcos</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PERGUNTAS FREQUENTES ==================== -->
+    <section id="perguntas" class="relative py-20 sm:py-28">
+      <div class="mx-auto max-w-3xl px-5 sm:px-8">
+        <div class="reveal text-center">
+          <p class="text-[11px] font-bold uppercase tracking-[.22em] text-cyan-soft">Dúvidas frequentes</p>
+          <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Perguntas antes de começar</h2>
+        </div>
+
+        <div class="mt-12 space-y-3">
+          <div class="faq-item reveal overflow-hidden rounded-2xl border border-line bg-surface">
+            <button class="flex w-full items-center justify-between gap-4 px-6 py-5 text-left">
+              <span class="text-[15px] font-bold text-white">Preciso ter logotipo pronto?</span>
+              <i data-lucide="plus" class="faq-icon h-5 w-5 shrink-0 text-emerald-soft"></i>
+            </button>
+            <div class="faq-body"><p class="px-6 pb-5 text-sm leading-relaxed text-mist">
+              Não é obrigatório. Se você já tem logo, usamos exatamente a sua identidade. Se não tem,
+              criamos uma identidade simples (nome, símbolo e paleta de cores) como parte do projeto.
+            </p></div>
+          </div>
+
+          <div class="faq-item reveal overflow-hidden rounded-2xl border border-line bg-surface">
+            <button class="flex w-full items-center justify-between gap-4 px-6 py-5 text-left">
+              <span class="text-[15px] font-bold text-white">Em quanto tempo fica pronto?</span>
+              <i data-lucide="plus" class="faq-icon h-5 w-5 shrink-0 text-emerald-soft"></i>
+            </button>
+            <div class="faq-body"><p class="px-6 pb-5 text-sm leading-relaxed text-mist">
+              O prazo padrão é de 3 a 7 dias úteis após o recebimento de todas as informações
+              (itens, preços e fotos). Projetos com muitas fotos e categorias podem levar um pouco mais.
+            </p></div>
+          </div>
+
+          <div class="faq-item reveal overflow-hidden rounded-2xl border border-line bg-surface">
+            <button class="flex w-full items-center justify-between gap-4 px-6 py-5 text-left">
+              <span class="text-[15px] font-bold text-white">Tenho mensalidade?</span>
+              <i data-lucide="plus" class="faq-icon h-5 w-5 shrink-0 text-emerald-soft"></i>
+            </button>
+            <div class="faq-body"><p class="px-6 pb-5 text-sm leading-relaxed text-mist">
+              O projeto é cobrado uma única vez. Depois, se quiser novos itens, novos designs ou novos
+              cardápios para outras unidades, é só chamar. Sem assinatura obrigatória.
+            </p></div>
+          </div>
+
+          <div class="faq-item reveal overflow-hidden rounded-2xl border border-line bg-surface">
+            <button class="flex w-full items-center justify-between gap-4 px-6 py-5 text-left">
+              <span class="text-[15px] font-bold text-white">Vocês também fazem landing pages?</span>
+              <i data-lucide="plus" class="faq-icon h-5 w-5 shrink-0 text-cyan-soft"></i>
+            </button>
+            <div class="faq-body"><p class="px-6 pb-5 text-sm leading-relaxed text-mist">
+              Sim. Desenvolvemos cardápios digitais e landing pages de alta performance para restaurantes,
+              lanchonetes, cafeterias e food service &mdash; sempre otimizadas para velocidade e para vender.
+            </p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CONTATO ==================== -->
+    <section id="contato" class="relative overflow-hidden py-20 sm:py-28">
+      <div class="pointer-events-none absolute inset-0 bg-aura"></div>
+
+      <div class="relative mx-auto max-w-6xl px-5 sm:px-8">
+        <div class="reveal relative overflow-hidden rounded-3xl border border-emerald/25 bg-surface p-8 shadow-accent-lg sm:p-12">
+          <div class="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-emerald/15 blur-3xl"></div>
+          <div class="pointer-events-none absolute -bottom-20 -left-10 h-64 w-64 rounded-full bg-cyan/15 blur-3xl"></div>
+
+          <div class="relative grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_auto]">
+            <div>
+              <span class="inline-flex items-center gap-2 rounded-full border border-cyan/30 bg-cyan/[.08] px-3.5 py-1.5 text-[11px] font-extrabold uppercase tracking-[.16em] text-cyan-soft">
+                <i data-lucide="sparkles" class="h-3.5 w-3.5"></i> Vamos construir juntos
+              </span>
+              <h2 class="mt-5 text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl">
+                Pronto para modernizar o seu cardápio?
+              </h2>
+              <p class="mt-4 max-w-xl text-base leading-relaxed text-mist">
+                Conte como é o seu restaurante hoje e montamos uma proposta sob medida: layout, link,
+                QR Code e integração com o WhatsApp. Resposta em até 24h úteis.
+              </p>
+
+              <div class="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <a href="https://wa.me/5554996077805?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20PIXEL%20%26%20CODE%20e%20quero%20um%20or%C3%A7amento%20para%20meu%20restaurante"
+                   target="_blank" rel="noopener"
+                   class="btn-accent inline-flex items-center justify-center gap-2.5 rounded-full px-6 py-4 text-sm font-extrabold text-[#04110C]">
+                  <i data-lucide="message-circle" class="h-5 w-5"></i> WhatsApp (54) 9 9607-7805
+                </a>
+                <a href="mailto:jfnunez.dev@gmail.com?subject=Or%C3%A7amento%20PIXEL%20%26%20CODE"
+                   class="btn-ghost inline-flex items-center justify-center gap-2.5 rounded-full px-6 py-4 text-sm font-bold text-white">
+                  <i data-lucide="mail" class="h-5 w-5 text-emerald-soft"></i> jfnunez.dev@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <!-- QR Code real de contato -->
+            <div class="hidden justify-center lg:flex">
+              <div class="rounded-2xl border border-emerald/25 bg-[#080D18] p-4 text-center">
+                <div class="overflow-hidden rounded-xl bg-white p-2">
+                  <img
+                    src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=https://wa.me/5554996077805?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20PIXEL%20%26%20CODE"
+                    width="200" height="200" loading="lazy" decoding="async"
+                    alt="QR Code para chamar a PIXEL &amp; CODE no WhatsApp"
+                    class="block h-28 w-28" />
+                </div>
+                <p class="mt-2.5 text-[10px] font-extrabold uppercase tracking-[.16em] text-emerald-soft">Fale conosco</p>
+                <p class="mt-0.5 text-[10px] font-semibold text-mist/70">Caxias do Sul - RS</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cards de contato -->
+        <div class="mt-6 grid gap-6 md:grid-cols-3">
+          <a href="https://wa.me/5554996077805?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20PIXEL%20%26%20CODE%20e%20quero%20um%20or%C3%A7amento%20para%20meu%20restaurante"
+             target="_blank" rel="noopener"
+             class="card-glow reveal group flex flex-col items-start rounded-2xl border border-line bg-surface p-7">
+            <span class="grid h-12 w-12 place-items-center rounded-xl bg-emerald/[.12] text-emerald-soft">
+              <i data-lucide="message-circle" class="h-6 w-6"></i>
+            </span>
+            <h3 class="mt-5 text-lg font-extrabold text-white">WhatsApp</h3>
+            <p class="mt-1 text-sm font-bold text-mist">+55 54 9 9607-7805</p>
+            <p class="mt-2 text-xs leading-relaxed text-mist/80">Resposta rápida em horário comercial. Mande sua dúvida ou orçamento.</p>
+            <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-extrabold text-emerald-soft">
+              Chamar agora <i data-lucide="arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-1"></i>
+            </span>
+          </a>
+
+          <a href="mailto:jfnunez.dev@gmail.com?subject=Or%C3%A7amento%20PIXEL%20%26%20CODE"
+             class="card-glow reveal group flex flex-col items-start rounded-2xl border border-line bg-surface p-7" style="transition-delay:.08s">
+            <span class="grid h-12 w-12 place-items-center rounded-xl bg-cyan/[.12] text-cyan-soft">
+              <i data-lucide="mail" class="h-6 w-6"></i>
+            </span>
+            <h3 class="mt-5 text-lg font-extrabold text-white">E-mail</h3>
+            <p class="mt-1 break-all text-sm font-bold text-mist">jfnunez.dev@gmail.com</p>
+            <p class="mt-2 text-xs leading-relaxed text-mist/80">Envie sua lista de itens, preços e fotos que retornamos com a proposta.</p>
+            <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-extrabold text-cyan-soft">
+              Enviar e-mail <i data-lucide="arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-1"></i>
+            </span>
+          </a>
+
+          <div class="card-glow reveal flex flex-col items-start rounded-2xl border border-line bg-surface p-7" style="transition-delay:.16s">
+            <span class="grid h-12 w-12 place-items-center rounded-xl bg-emerald/[.12] text-emerald-soft">
+              <i data-lucide="clock" class="h-6 w-6"></i>
+            </span>
+            <h3 class="mt-5 text-lg font-extrabold text-white">Prazo</h3>
+            <p class="mt-1 text-sm font-bold text-mist">3 a 7 dias úteis</p>
+            <p class="mt-2 text-xs leading-relaxed text-mist/80">Você acompanha cada etapa pelo WhatsApp, do design à entrega final.</p>
+            <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-extrabold text-emerald-soft">
+              Cronograma claro <i data-lucide="arrow-right" class="h-4 w-4"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== RODAPÉ ==================== -->
+  <footer class="relative border-t border-line bg-deep/70">
+    <div class="mx-auto max-w-7xl px-5 py-14 sm:px-8">
+      <div class="grid gap-10 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)]">
+
+        <div>
+          <a href="#hero" class="flex items-center gap-3">
+            <span class="logo-mark grid h-11 w-11 place-items-center rounded-xl font-mono text-[15px] font-bold text-white">
+              <span class="text-gradient">&lt;/&gt;</span>
+            </span>
+            <span class="leading-tight">
+              <span class="block text-[15px] font-extrabold text-white">PIXEL <span class="text-gradient">&amp;</span> CODE</span>
+              <span class="block text-[10px] font-bold uppercase tracking-[.2em] text-mist/70">Soluções Digitais</span>
+            </span>
+          </a>
+          <p class="mt-5 max-w-sm text-sm leading-relaxed text-mist/80">
+            Desenvolvimento de cardápios digitais e landing pages de alta performance para
+            restaurantes, lanchonetes e cafeterias. Rápidos, bonitos e ligados ao WhatsApp.
+          </p>
+          <a href="mailto:jfnunez.dev@gmail.com" class="mt-5 inline-flex items-center gap-2 text-sm font-bold text-white transition-colors hover:text-emerald-soft">
+            <i data-lucide="mail" class="h-4 w-4"></i> jfnunez.dev@gmail.com
+          </a>
+        </div>
+
+        <nav>
+          <h4 class="text-[11px] font-extrabold uppercase tracking-[.2em] text-mist/70">Navegação</h4>
+          <ul class="mt-4 space-y-2.5 text-sm font-semibold">
+            <li><a class="text-mist transition-colors hover:text-emerald-soft" href="#hero">Início</a></li>
+            <li><a class="text-mist transition-colors hover:text-emerald-soft" href="#como-funciona">Como funciona</a></li>
+            <li><a class="text-mist transition-colors hover:text-emerald-soft" href="#exemplos">Exemplos</a></li>
+            <li><a class="text-mist transition-colors hover:text-emerald-soft" href="#vantagens">Vantagens</a></li>
+            <li><a class="text-mist transition-colors hover:text-emerald-soft" href="#contato">Contato</a></li>
+          </ul>
+        </nav>
+
+        <nav>
+          <h4 class="text-[11px] font-extrabold uppercase tracking-[.2em] text-mist/70">Serviços</h4>
+          <ul class="mt-4 space-y-2.5 text-sm font-semibold text-mist">
+            <li>Cardápio digital</li>
+            <li>Landing pages</li>
+            <li>QR Code para mesas</li>
+            <li>Pedidos no WhatsApp</li>
+            <li>Atualização de preços</li>
+          </ul>
+        </nav>
+
+        <div>
+          <h4 class="text-[11px] font-extrabold uppercase tracking-[.2em] text-mist/70">Contato</h4>
+          <ul class="mt-4 space-y-2.5 text-sm font-semibold text-mist">
+            <li>
+              <a href="https://wa.me/5554996077805?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20PIXEL%20%26%20CODE%20e%20quero%20um%20or%C3%A7amento%20para%20meu%20restaurante"
+                 target="_blank" rel="noopener" class="transition-colors hover:text-emerald-soft">WhatsApp (54) 9 9607-7805</a>
+            </li>
+            <li><a href="mailto:jfnunez.dev@gmail.com" class="transition-colors hover:text-emerald-soft">jfnunez.dev@gmail.com</a></li>
+            <li>
+              <a href="https://www.instagram.com/pixelcode.solucoesdigitais/" target="_blank" rel="noopener" class="transition-colors hover:text-emerald-soft">@pixelcode.solucoesdigitais</a>
+            </li>
+            <li>Caxias do Sul - RS, Brasil</li>
+          </ul>
+
+          <div class="mt-5 flex items-center gap-2.5">
+            <a href="https://wa.me/5554996077805?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20PIXEL%20%26%20CODE%20e%20quero%20um%20or%C3%A7amento%20para%20meu%20restaurante"
+               target="_blank" rel="noopener" aria-label="WhatsApp"
+               class="grid h-10 w-10 place-items-center rounded-xl border border-line bg-white/[.03] text-mist transition-all duration-300 hover:border-emerald/50 hover:text-emerald-soft">
+              <i data-lucide="message-circle" class="h-5 w-5"></i>
+            </a>
+            <a href="mailto:jfnunez.dev@gmail.com" aria-label="E-mail"
+               class="grid h-10 w-10 place-items-center rounded-xl border border-line bg-white/[.03] text-mist transition-all duration-300 hover:border-cyan/50 hover:text-cyan-soft">
+              <i data-lucide="mail" class="h-5 w-5"></i>
+            </a>
+            <!-- Perfil real do Instagram -->
+            <a href="https://www.instagram.com/pixelcode.solucoesdigitais/" target="_blank" rel="noopener" aria-label="Instagram"
+               class="grid h-10 w-10 place-items-center rounded-xl border border-line bg-white/[.03] text-mist transition-all duration-300 hover:border-emerald/50 hover:text-emerald-soft">
+              <i data-lucide="instagram" class="h-5 w-5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-line pt-7 text-xs font-semibold text-mist/70 sm:flex-row">
+        <p>&copy; <span id="year">2026</span> PIXEL &amp; CODE Soluções Digitais. Todos os direitos reservados.</p>
+        <p class="flex items-center gap-2">
+          Feito com <span class="text-emerald-soft" aria-hidden="true">&hearts;</span> para o food service brasileiro
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== WHATSAPP FLUTUANTE ==================== -->
+  <a href="https://wa.me/5554996077805?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20PIXEL%20%26%20CODE%20e%20quero%20um%20or%C3%A7amento%20para%20meu%20restaurante"
+     target="_blank" rel="noopener"
+     class="wa-float btn-accent fixed bottom-5 right-5 z-50 inline-flex items-center gap-2.5 rounded-full px-5 py-4 font-extrabold text-[#04110C] sm:bottom-7 sm:right-7"
+     aria-label="Falar com a PIXEL &amp; CODE no WhatsApp">
+    <i data-lucide="message-circle" class="h-6 w-6"></i>
+    <span class="hidden text-sm sm:inline">Pedir orçamento</span>
+  </a>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script>
+    /* 1) Ícones Lucide */
+    if (window.lucide) lucide.createIcons();
+
+    /* 2) Navbar com fundo ao rolar */
+    const navbar = document.getElementById('navbar');
+    const onScroll = () => {
+      const solid = window.scrollY > 24;
+      ['bg-base/85','backdrop-blur-xl','border-line','shadow-card'].forEach(c => {
+        solid ? navbar.classList.add(c) : navbar.classList.remove(c);
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* 3) Menu mobile */
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const toggleMenu = (force) => {
+      const open = force !== undefined ? force : mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden', !open);
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.innerHTML = open
+        ? '<i data-lucide="x" class="h-5 w-5"></i>'
+        : '<i data-lucide="menu" class="h-5 w-5"></i>';
+      if (window.lucide) lucide.createIcons();
+    };
+    menuBtn.addEventListener('click', () => toggleMenu());
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+
+    /* 4) Revelar elementos no scroll */
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => entry.target.classList.add('is-visible'), i * 60);
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+      revealEls.forEach(el => io.observe(el));
+    } else {
+      revealEls.forEach(el => el.classList.add('is-visible'));
+    }
+
+    /* 5) FAQ (accordion) */
+    document.querySelectorAll('.faq-item button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(o => o.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    /* 6) Ano no copyright */
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* 7) Link ativo na navbar */
+    const navLinks = document.querySelectorAll('.nav-link');
+    if ('IntersectionObserver' in window) {
+      const spy = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navLinks.forEach(link =>
+              link.classList.toggle('text-emerald-soft', link.getAttribute('href') === '#' + entry.target.id)
+            );
+          }
+        });
+      }, { rootMargin: '-45% 0px -50% 0px' });
+      document.querySelectorAll('main section[id]').forEach(s => spy.observe(s));
+    }
+
+    /* 8) Fallback das fotos de exemplo (Unsplash) */
+    document.querySelectorAll('img[data-fallback]').forEach(img => {
+      img.addEventListener('error', () => {
+        const alt = img.dataset.fallback;
+        if (alt && img.src !== alt) {
+          img.dataset.fallback = '';   // evita loop infinito
+          img.src = alt;
+        } else {
+          img.remove();                 // mantém o gradiente de fundo do card
+        }
+      });
+    });
+
+    /* 9) Rolagem suave com offset da navbar fixa */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        const top = target.getBoundingClientRect().top + window.scrollY - 88;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>

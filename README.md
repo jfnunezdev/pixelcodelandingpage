@@ -34,7 +34,8 @@ Landing page institucional desarrollada para **Pixel & Code**, enfocada en ofrec
 
 ## 👨‍💻 Autor
 
-Desarrollado por **J. F. Núñez** (`jfnunezdev`)
-- **LinkedIn:** [https://www.linkedin.com/in/jos%C3%A9-f%C3%A9lix-nunez-741990437]
-- **GitHub:** [@jfnunezdev](https://github.com/jfnunezdev)
--
+Desarrollado por *J. F. Núñez* (jfnunezdev)
+
+- *LinkedIn:* [José F. Núñez](https://www.linkedin.com/in/jos%C3%A9-f%C3%A9lix-nunez-741990437)
+- *GitHub:* [@jfnunezdev](https://github.com/jfnunezdev)
+
